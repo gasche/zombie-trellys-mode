@@ -14,6 +14,12 @@ customize =zombie-trellys-mode-hook= to get rid of them. The mode
 already takes care of some potentially problematic Haskell minor
 modes.
 
+Right now, =zombie-trellys-mode= has one interesting command aside
+from those provided by the underlying =haskell-mode=: =C-c C-l= will
+compile the current file and provide highlighted output. If it can't
+find your =trellys= executable, then customize the variable
+=zombie-trellys-command=.
+
 Zombie highlights its output to show where terms differ. If you're
 seeing ugly ANSI codes instead of colors, try putting something like
 this in your =init.el=:
