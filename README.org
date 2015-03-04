@@ -13,3 +13,15 @@ Haskell configuration does things that you don't want for Zombie, then
 customize =zombie-trellys-mode-hook= to get rid of them. The mode
 already takes care of some potentially problematic Haskell minor
 modes.
+
+Zombie highlights its output to show where terms differ. If you're
+seeing ugly ANSI codes instead of colors, try putting something like
+this in your =init.el=:
+#+BEGIN_SRC elisp
+  (require 'ansi-color)
+  (defun colorize-compilation-buffer ()
+    (when (eq major-mode 'compilation-mode)
+      (let ((inhibit-read-only t))
+        (ansi-color-apply-on-region (point-min) (point-max)))))
+  (add-hook 'compilation-filter-hook 'colorize-compilation-buffer)
+#+END_SRC
