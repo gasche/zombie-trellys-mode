@@ -104,6 +104,9 @@
 (define-key zombie-trellys-mode-map (kbd "C-c C-l")
   #'zombie-trellys-compile-buffer)
 
+(font-lock-add-keywords 'zombie-trellys-mode
+                        '(("\\<\\(log\\|prog\\|usually\\)\\>" 1 haskell-keyword-face)))
+
 (add-to-list 'auto-mode-alist '("\\.trellys$" . zombie-trellys-mode))
 
 
