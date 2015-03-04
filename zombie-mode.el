@@ -87,6 +87,31 @@
                    3 4 5 nil 2 (1 "compilation-error")))
     (cl-pushnew 'zombie-type-error compilation-error-regexp-alist)))
 
+
+
+(defun zombie-enable-for-trellys ()
+  "Conditionally set up `haskell-mode' to work better with `zombie-minor-mode'.
+In particular, if `zombie-minor-mode' is not already enabled and
+the current file extension is for Trellys, the following will
+happen: `interactive-haskell-mode' and `structured-haskell-mode'
+will be disabled, and `zombie-minor-mode' will be enabled.
+
+This function is intended to be used as part of `haskell-mode-hook'."
+  (interactive)
+  (unless zombie-minor-mode
+    (when (string= (file-name-extension (buffer-file-name))
+                   "trellys")
+      ;; Disable interactive-haskell-mode, which is useless for Zombie
+      (when (and (fboundp 'interactive-haskell-mode)
+                 (boundp 'interactive-haskell-mode)
+                 interactive-haskell-mode)
+        (interactive-haskell-mode -1))
+      ;; Disable structured-haskell-mode, which is useless for Zombie
+      (when (and (fboundp 'structured-haskell-mode) (boundp 'structured-haskell-mode) structured-haskell-mode)
+        (structured-haskell-mode -1))
+      (zombie-minor-mode 1))))
+
+
 
 (provide 'zombie-mode)
 ;;; zombie-mode.el ends here

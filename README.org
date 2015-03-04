@@ -12,3 +12,10 @@ compilation command with appropriate highlighting. Use with
 e.g. =haskell-mode= for reasonable syntax highlighting. To use it,
 arrange for the contents of the package to be loaded and then run
 =zombie-minor-mode=.
+
+You may want to consider configuring Emacs as follows to cause
+=haskell-mode= and =zombie-minor-mode= to run on =.trellys= files:
+#+BEGIN_SRC elisp
+(add-to-list 'auto-mode-alist '("\\.trellys$" . haskell-mode))
+(add-hook 'haskell-mode-hook 'zombie-enable-for-trellys t)
+#+END_SRC
