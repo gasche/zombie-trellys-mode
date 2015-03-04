@@ -5,7 +5,7 @@
 ;; Author: David Raymond Christiansen <david@davidchristiansen.dk>
 ;; Keywords: languages
 ;; Package-Requires: ((emacs "24") (cl-lib "0.5") (haskell-mode "1.5"))
-;; Version: 0.2
+;; Version: 0.2.1
 
 ;; This program is free software; you can redistribute it and/or modify
 ;; it under the terms of the GNU General Public License as published by
@@ -91,7 +91,7 @@
     (structured-haskell-mode -1)))
 
 
-
+;;;###autoload
 (define-derived-mode zombie-trellys-mode haskell-mode "Zombie-Trellys"
   "A major mode for Zombie."
   (add-to-list 'compilation-error-regexp-alist-alist
@@ -107,6 +107,7 @@
 (font-lock-add-keywords 'zombie-trellys-mode
                         '(("\\<\\(log\\|prog\\|usually\\)\\>" 1 haskell-keyword-face)))
 
+;;;###autoload
 (add-to-list 'auto-mode-alist '("\\.trellys$" . zombie-trellys-mode))
 
 
