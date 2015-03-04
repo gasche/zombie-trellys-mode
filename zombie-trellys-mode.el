@@ -89,6 +89,17 @@
              (boundp 'structured-haskell-mode)
              structured-haskell-mode)
     (structured-haskell-mode -1)))
+
+
+;; Copied from the keywords list in the Zombie parser
+(defconst zombie-trellys-keywords
+  '("ord" "ordtrans" "join" "pjoin" "smartjoin"
+    "smartpjoin" "unfold" "punfold" "rec" "ind"
+    "Type" "data" "where" "case" "of" "with"
+    "abort" "contra" "let" "in" "prog" "log"
+    "axiom" "erased" "termcase" "TRUSTME"
+    "injectivity" "if" "then" "else")
+  "The keywords to add for Zombie.")
 
 
 ;;;###autoload
@@ -105,7 +116,8 @@
   #'zombie-trellys-compile-buffer)
 
 (font-lock-add-keywords 'zombie-trellys-mode
-                        '(("\\<\\(log\\|prog\\|usually\\)\\>" 1 haskell-keyword-face)))
+                        `((,(regexp-opt zombie-trellys-keywords 'words)
+                           1 haskell-keyword-face)))
 
 ;;;###autoload
 (add-to-list 'auto-mode-alist '("\\.trellys$" . zombie-trellys-mode))
