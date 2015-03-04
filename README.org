@@ -1,0 +1,14 @@
+* Zombie minor mode
+
+This is a minor mode for interacting with the [[https://code.google.com/p/trellys/][Zombie Trellys system]],
+which is a dependently-typed language that is one of the results of
+the Trellys project. You can read about Zombie in papers like:
+ * [[http://www.seas.upenn.edu/~ccasin/papers/combining-TR.pdf][Combining Proofs and Programs in a Dependently Typed Language]] by
+   Casingho, Sjöberg and Weirich, POPL 2014
+ * [[http://www.seas.upenn.edu/~vilhelm/papers/popl15congruence.pdf][Programming Up to Congruence]] by Sjöberg and Weirich, POPL 2015
+
+Currently, this is just a minor mode that provides a useful
+compilation command with appropriate highlighting. Use with
+e.g. =haskell-mode= for reasonable syntax highlighting. To use it,
+arrange for the contents of the package to be loaded and then run
+=zombie-minor-mode=.
