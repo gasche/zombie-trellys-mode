@@ -5,7 +5,7 @@ which is a dependently-typed language that is one of the results of
 the Trellys project. You can read about Zombie in papers like:
  * [[http://www.seas.upenn.edu/~ccasin/papers/combining-TR.pdf][Combining Proofs and Programs in a Dependently Typed Language]] by
    Casingho, Sjöberg and Weirich, POPL 2014
- * [[http://www.seas.upenn.edu/~vilhelm/papers/popl15congruence.pdf][Programming Up to Congruence]] by Sjöberg and Weirich, POPL 2015
+ * [[http://www.seas.upenn.edu/~sweirich/papers/congruence-extended.pdf][Programming Up to Congruence]] by Sjöberg and Weirich, POPL 2015
 
 This mode is presently derived from =haskell-mode= to get
 "good-enough" syntax highlighting and editing commands. If your
